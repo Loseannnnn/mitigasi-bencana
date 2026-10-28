@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d69">
+  <meta name="description" content="Portal edukasi warga tentang kesiapsiagaan dan mitigasi gempa bumi: persiapan, tindakan saat guncangan, dan langkah setelah gempa.">
+  <meta property="og:title" content="Siaga Gempa — Edukasi Mitigasi Gempa Bumi">
+  <meta property="og:description" content="Panduan sederhana sebelum, saat, dan setelah gempa bumi, disusun dengan rujukan resmi BMKG dan BNPB.">
+  <meta property="og:type" content="website">
+  <title>Siaga Gempa | Edukasi Mitigasi Gempa Bumi</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172c40;
+      --muted: #5b6c7e;
+      --blue-950: #0c2947;
+      --blue-900: #123d69;
+      --blue-800: #17558d;
+      --blue-100: #eaf4fc;
+      --blue-50: #f5faff;
+      --teal: #0f766e;
+      --teal-100: #dff6f1;
+      --orange: #f2a23a;
+      --orange-100: #fff3df;
+      --paper: #ffffff;
+      --line: #dbe5ed;
+      --shadow: 0 18px 48px rgba(18, 61, 105, .10);
+      --radius: 22px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: #f7fafc; color: var(--ink); font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: var(--blue-800); text-underline-offset: 3px; }
+    a:hover { color: var(--blue-950); }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #f2a23a; outline-offset: 3px; }
+    .skip-link { position: absolute; top: -60px; left: 12px; z-index: 99; background: white; color: var(--blue-950); padding: 10px 14px; border-radius: 8px; }
+    .skip-link:focus { top: 10px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topline { background: var(--blue-950); color: #d7e8f8; font-size: .82rem; }
+    .topline .wrap { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding-block: 8px; }
+    .topline a { color: #fff; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(219,229,237,.9); }
+    .nav-wrap { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font-weight: 800; letter-spacing: -.03em; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; color: white; background: linear-gradient(145deg, var(--blue-800), var(--blue-950)); box-shadow: 0 8px 20px rgba(18,61,105,.20); }
+    .brand small { display: block; font-weight: 600; letter-spacing: 0; font-size: .72rem; color: var(--muted); margin-top: -2px; }
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a { color: #334b60; font-size: .92rem; font-weight: 650; text-decoration: none; }
+    .nav-links a:hover { color: var(--blue-800); }
+    .nav-toggle { display: none; border: 1px solid var(--line); background: white; color: var(--blue-950); border-radius: 12px; padding: 9px 12px; cursor: pointer; }
+    .hero { overflow: hidden; position: relative; background: radial-gradient(circle at 84% 18%, rgba(92,173,224,.23), transparent 27%), linear-gradient(120deg, #0c2947 0%, #123d69 56%, #17558d 100%); color: white; }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; pointer-events: none; }
+    .hero::before { width: 510px; height: 510px; right: -160px; top: -205px; }
+    .hero::after { width: 380px; height: 380px; right: -95px; top: -140px; }
+    .hero-grid { position: relative; z-index: 1; padding-block: 76px 72px; display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 48px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); border-radius: 999px; padding: 7px 12px; color: #e4f2ff; font-weight: 700; font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 700px; font-size: clamp(2.5rem, 5vw, 4.6rem); line-height: 1.04; letter-spacing: -.055em; margin: 19px 0 20px; }
+    .hero p { color: #d9e9f8; max-width: 620px; font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; border-radius: 13px; border: 1px solid transparent; padding: 11px 17px; text-decoration: none; font-weight: 750; cursor: pointer; transition: transform .18s ease, background .18s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: #2f260f; }
+    .btn-primary:hover { color: #211902; background: #ffbd61; }
+    .btn-ghost { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.3); color: white; }
+    .btn-ghost:hover { background: rgba(255,255,255,.15); color: white; }
+    .hero-art { min-height: 330px; display: grid; place-items: center; position: relative; }
+    .earth-card { width: min(100%, 390px); padding: 25px; border: 1px solid rgba(255,255,255,.25); border-radius: 28px; background: rgba(255,255,255,.10); box-shadow: 0 24px 65px rgba(0,0,0,.16); backdrop-filter: blur(8px); transform: rotate(1.3deg); }
+    .earth-illustration { width: 100%; height: auto; display: block; }
+    .earth-card-caption { display: flex; align-items: center; gap: 13px; border-top: 1px solid rgba(255,255,255,.20); margin-top: 16px; padding-top: 16px; }
+    .caption-icon { background: var(--orange); color: #2f260f; width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border-radius: 14px; }
+    .earth-card-caption strong { display: block; }
+    .earth-card-caption span { font-size: .84rem; color: #d9e9f8; }
+    .quick-facts { background: white; border-bottom: 1px solid var(--line); }
+    .fact-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+    .fact { display: flex; align-items: center; gap: 14px; padding: 23px 24px; border-right: 1px solid var(--line); }
+    .fact:first-child { padding-left: 0; }
+    .fact:last-child { border: 0; }
+    .fact-icon { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 14px; background: var(--blue-100); color: var(--blue-800); }
+    .fact strong { display: block; font-size: .96rem; }
+    .fact span { display: block; color: var(--muted); font-size: .83rem; line-height: 1.4; }
+    section { padding-block: 82px; }
+    .section-head { max-width: 700px; margin-bottom: 34px; }
+    .kicker { color: var(--teal); text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 850; margin-bottom: 10px; }
+    h2 { color: var(--blue-950); font-size: clamp(1.9rem, 3.3vw, 3rem); letter-spacing: -.045em; line-height: 1.12; margin-bottom: 13px; }
+    .section-head p { color: var(--muted); font-size: 1.03rem; margin-bottom: 0; }
+    .learn-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .learn-card { border: 1px solid var(--line); border-radius: var(--radius); background: white; padding: 25px; box-shadow: 0 8px 25px rgba(18,61,105,.04); }
+    .card-number { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 14px; font-size: 1.1rem; font-weight: 850; background: var(--blue-100); color: var(--blue-800); margin-bottom: 20px; }
+    .learn-card:nth-child(2) .card-number { background: var(--orange-100); color: #8a4b00; }
+    .learn-card:nth-child(3) .card-number { background: var(--teal-100); color: var(--teal); }
+    .learn-card h3 { color: var(--blue-950); font-size: 1.25rem; margin-bottom: 8px; }
+    .learn-card p { color: var(--muted); font-size: .94rem; }
+    .text-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; text-decoration: none; }
+    .urgent { padding: 0; }
+    .urgent-panel { background: #fff5e5; border: 1px solid #f8dfb4; border-radius: 24px; padding: 26px 30px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; }
+    .urgent-symbol { width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; background: var(--orange); color: #3a270b; }
+    .urgent h2 { font-size: 1.45rem; margin-bottom: 6px; }
+    .urgent p { margin: 0; color: #624819; }
+    .materials { background: var(--blue-50); }
+    .material-layout { display: grid; grid-template-columns: 260px 1fr; gap: 35px; align-items: start; }
+    .material-side { border: 1px solid var(--line); background: white; padding: 18px; border-radius: 18px; position: sticky; top: 100px; }
+    .material-side strong { display: block; margin-bottom: 12px; color: var(--blue-950); }
+    .material-side a { display: block; text-decoration: none; font-weight: 650; padding: 9px 10px; border-radius: 10px; font-size: .91rem; }
+    .material-side a:hover { background: var(--blue-50); }
+    .material-main { min-width: 0; }
+    .material-block { background: white; border: 1px solid var(--line); border-radius: 22px; padding: 28px; margin-bottom: 18px; scroll-margin-top: 100px; }
+    .material-block-head { display: flex; gap: 15px; align-items: start; margin-bottom: 18px; }
+    .material-block h3 { font-size: 1.4rem; line-height: 1.25; color: var(--blue-950); margin: 3px 0 5px; }
+    .material-block-head p { color: var(--muted); margin: 0; font-size: .91rem; }
+    .phase-tag { white-space: nowrap; display: inline-block; padding: 5px 9px; font-size: .74rem; font-weight: 800; border-radius: 999px; color: var(--blue-800); background: var(--blue-100); }
+    .material-block ol, .material-block ul { padding-left: 22px; margin: 10px 0; }
+    .material-block li { padding-left: 4px; margin: 8px 0; }
+    .material-block li::marker { color: var(--teal); font-weight: 800; }
+    .tip { background: #f1faf7; border-left: 4px solid var(--teal); padding: 14px 16px; border-radius: 0 12px 12px 0; margin-top: 18px; color: #244e49; font-size: .93rem; }
+    .tip strong { color: #0b5a52; }
+    .kit-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-top: 14px; }
+    .kit-item { display: flex; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; align-items: start; font-size: .92rem; }
+    .kit-item span { color: var(--teal); font-weight: 900; }
+    .quiz-section { background: white; }
+    .quiz-box { background: var(--blue-950); color: white; padding: 32px; border-radius: 26px; display: grid; grid-template-columns: .75fr 1.25fr; gap: 35px; }
+    .quiz-box h2 { color: white; font-size: 2rem; }
+    .quiz-intro p { color: #c8d9e9; }
+    .quiz-question { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,.15); }
+    .quiz-question:last-of-type { border-bottom: 0; }
+    .quiz-question fieldset { margin: 0; padding: 0; border: 0; }
+    .quiz-question legend { font-weight: 750; margin-bottom: 10px; }
+    .quiz-option { display: flex; align-items: flex-start; gap: 10px; margin: 8px 0; color: #e1edf7; cursor: pointer; font-size: .94rem; }
+    .quiz-option input { accent-color: var(--orange); margin-top: 5px; }
+    .quiz-result { display: none; margin-top: 18px; padding: 15px; border-radius: 12px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); }
+    .quiz-result.visible { display: block; }
+    .quiz-submit { background: var(--orange); border: 0; border-radius: 12px; padding: 11px 16px; font-weight: 850; color: #2f260f; cursor: pointer; }
+    .video-section { background: #f7fafc; }
+    .video-card { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; background: white; }
+    .video-visual { min-height: 260px; display: grid; place-items: center; background: linear-gradient(145deg, #d9ecfb, #eff8ff); position: relative; padding: 30px; }
+    .play-circle { width: 82px; height: 82px; border-radius: 50%; display: grid; place-items: center; background: var(--blue-800); color: white; box-shadow: 0 12px 28px rgba(18,61,105,.25); }
+    .video-visual small { position: absolute; left: 20px; bottom: 17px; color: var(--blue-800); font-weight: 750; }
+    .video-copy { padding: 32px; align-self: center; }
+    .status { display: inline-flex; border-radius: 999px; padding: 5px 9px; font-size: .73rem; font-weight: 850; background: var(--orange-100); color: #8a4b00; margin-bottom: 12px; }
+    .video-copy h3 { font-size: 1.5rem; color: var(--blue-950); line-height: 1.25; margin-bottom: 10px; }
+    .video-copy p { color: var(--muted); }
+    .source-section { background: white; }
+    .sources-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .source-card { display: flex; gap: 15px; padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: white; }
+    .source-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: var(--blue-100); color: var(--blue-800); }
+    .source-card h3 { font-size: 1.03rem; margin-bottom: 5px; color: var(--blue-950); }
+    .source-card p { margin-bottom: 9px; color: var(--muted); font-size: .88rem; }
+    .source-card a { font-size: .9rem; font-weight: 800; }
+    .about-section { background: var(--blue-50); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: start; }
+    .about-card { border: 1px solid var(--line); background: white; border-radius: 22px; padding: 25px; }
+    .about-card h3 { color: var(--blue-950); font-size: 1.2rem; }
+    .profile-list { margin: 0; }
+    .profile-list div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #edf1f5; }
+    .profile-list div:last-child { border-bottom: 0; }
+    .profile-list dt { color: var(--muted); font-size: .88rem; }
+    .profile-list dd { margin: 0; font-weight: 700; font-size: .91rem; }
+    .placeholder-note { padding: 13px 15px; background: #fff5e5; border: 1px solid #f8dfb4; color: #624819; border-radius: 12px; font-size: .87rem; }
+    footer { background: var(--blue-950); color: #d4e3f0; padding: 36px 0 24px; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,.16); }
+    footer strong { color: white; }
+    footer p { max-width: 570px; margin: 8px 0 0; font-size: .9rem; color: #c1d5e7; }
+    footer a { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 15px; padding-top: 18px; color: #a9c1d6; font-size: .8rem; }
+    .back-top { position: fixed; bottom: 18px; right: 18px; z-index: 30; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 15px; background: var(--blue-800); color: white; border: 0; box-shadow: var(--shadow); cursor: pointer; }
+    .small-note { color: var(--muted); font-size: .82rem; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 900px) {
+      .nav-links { gap: 13px; }
+      .nav-links a { font-size: .84rem; }
+      .hero-grid { gap: 22px; }
+      .material-layout { grid-template-columns: 220px 1fr; gap: 20px; }
+      .quiz-box { grid-template-columns: 1fr; gap: 15px; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(var(--max), calc(100% - 30px)); }
+      .topline .wrap { flex-wrap: wrap; font-size: .75rem; }
+      .nav-wrap { min-height: 66px; }
+      .nav-toggle { display: inline-flex; align-items: center; gap: 7px; }
+      .nav-links { display: none; position: absolute; top: 66px; left: 0; right: 0; background: white; padding: 12px 20px 18px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px rgba(18,61,105,.08); flex-direction: column; align-items: stretch; gap: 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 8px; font-size: .96rem; }
+      .hero-grid { grid-template-columns: 1fr; padding-block: 54px 46px; }
+      h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
+      .hero-art { min-height: auto; padding-top: 10px; }
+      .earth-card { max-width: 330px; }
+      .fact-grid { grid-template-columns: 1fr; }
+      .fact, .fact:first-child { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .fact:last-child { border-bottom: 0; }
+      section { padding-block: 58px; }
+      .learn-grid { grid-template-columns: 1fr; }
+      .urgent-panel { padding: 20px; grid-template-columns: 42px 1fr; gap: 13px; }
+      .urgent-symbol { width: 42px; height: 42px; }
+      .material-layout { grid-template-columns: 1fr; }
+      .material-side { position: static; display: grid; grid-template-columns: 1fr; }
+      .material-block { padding: 21px; }
+      .material-block-head { flex-wrap: wrap; }
+      .kit-grid { grid-template-columns: 1fr; }
+      .quiz-box { padding: 23px; }
+      .video-card { grid-template-columns: 1fr; }
+      .video-visual { min-height: 190px; }
+      .video-copy { padding: 24px; }
+      .sources-grid, .about-grid { grid-template-columns: 1fr; }
+      .profile-list div { grid-template-columns: 112px 1fr; }
+      .footer-top, .footer-bottom { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      header, .topline, .hero-actions, .quiz-section, .back-top, .video-section, footer { display: none !important; }
+      body, .materials, .about-section { background: white !important; }
+      section { padding: 22px 0; }
+      .hero { background: white !important; color: #111 !important; }
+      .hero p, .earth-card-caption span { color: #333 !important; }
+      .hero-grid { display: block; padding: 20px 0; }
+      .hero-art { display: none; }
+      h1, h2, h3 { color: #111 !important; }
+      .learn-grid, .sources-grid, .about-grid { grid-template-columns: 1fr 1fr; }
+      .material-layout { display: block; }
+      .material-side { display: none; }
+      .material-block, .learn-card, .source-card { break-inside: avoid; box-shadow: none; }
+      a { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+  <div class="topline">
+    <div class="wrap">
+      <span>Portal edukasi warga · Mitigasi bencana gempa bumi</span>
+      <span>Rujukan utama: <a href="https://www.bmkg.go.id/gempabumi/mitigasi/antisipasi-gempabumi" target="_blank" rel="noopener noreferrer">BMKG</a></span>
+    </div>
+  </div>
+  <header>
+    <div class="wrap nav-wrap">
+      <a class="brand" href="#beranda" aria-label="Siaga Gempa, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2.1-5 4.1 10L15.5 12H21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 2.8a9.2 9.2 0 1 0 9.2 9.2" stroke="currentColor" stroke-width="1.3" opacity=".55"/></svg>
+        </span>
+        <span>Siaga Gempa<small>Edukasi untuk semua</small></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks"><span aria-hidden="true">☰</span> Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#materi">Materi</a>
+        <a href="#kuis">Kuis</a>
+        <a href="#video">Video</a>
+        <a href="#referensi">Referensi</a>
+        <a href="#tentang">Tentang KKN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="hero" id="beranda">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><span aria-hidden="true">●</span> Kenali risiko · Siapkan diri</span>
+          <h1>Lebih siap menghadapi <span style="color:#ffc66f">gempa bumi.</span></h1>
+          <p>Gempa tidak selalu bisa diperkirakan. Namun, kita dapat belajar mengenali risiko, menyiapkan rumah, dan mengetahui tindakan yang lebih aman sebelum, saat, dan setelah guncangan.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#materi">Mulai belajar <span aria-hidden="true">→</span></a>
+            <button class="btn btn-ghost" id="printSummary" type="button"><span aria-hidden="true">▤</span> Cetak ringkasan</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustrasi bumi dan kesiapsiagaan" role="img">
+          <div class="earth-card">
+            <svg class="earth-illustration" viewBox="0 0 360 245" role="img" aria-label="Ilustrasi bumi, rumah, dan gelombang guncangan">
+              <defs><linearGradient id="planet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b5e2ff"/><stop offset="1" stop-color="#5fb3e9"/></linearGradient></defs>
+              <circle cx="180" cy="118" r="91" fill="url(#planet)" opacity=".98"/>
+              <path d="M112 72l18-12 16 5 7 14-11 12-4 18-14 4-7-14-15-6zM179 63l19-8 21 11 7 20-11 14-6 19-17 1-6-18-13-10zM213 141l20-10 20 7 2 16-16 11-16-5zM128 143l14 8 6 17-14 10-12-14z" fill="#247e78" opacity=".9"/>
+              <path d="M28 158h83l12-21 18 44 16-29 12 6h48l13-20 18 23h93" fill="none" stroke="#ffc66f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+              <g transform="translate(126 107)"><path d="M0 30L34 2l34 28v46H0z" fill="#fff"/><path d="M-7 31L34-4l41 35" fill="none" stroke="#123d69" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="27" y="48" width="16" height="28" rx="2" fill="#f2a23a"/><rect x="8" y="42" width="12" height="12" rx="2" fill="#a7d7f8"/><rect x="49" y="42" width="12" height="12" rx="2" fill="#a7d7f8"/></g>
+              <circle cx="286" cy="49" r="15" fill="#ffc66f"/><path d="M286 24v-8M286 82v-8M261 49h-8M319 49h-8M268 31l-6-6M304 67l-6-6M304 31l6-6M268 67l-6 6" stroke="#ffc66f" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="64" cy="51" r="4" fill="#fff" opacity=".9"/><circle cx="90" cy="35" r="2.5" fill="#fff" opacity=".75"/><circle cx="300" cy="190" r="4" fill="#fff" opacity=".7"/>
+            </svg>
+            <div class="earth-card-caption"><span class="caption-icon" aria-hidden="true">✓</span><div><strong>Siap lebih awal</strong><span>Pengetahuan kecil bisa membantu kita mengambil tindakan.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quick-facts" aria-label="Tiga tahap kesiapsiagaan">
+      <div class="wrap fact-grid">
+        <div class="fact"><span class="fact-icon" aria-hidden="true">⌂</span><div><strong>Sebelum gempa</strong><span>Kenali rumah dan siapkan kebutuhan.</span></div></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">◇</span><div><strong>Saat guncangan</strong><span>Lindungi kepala dan cari perlindungan.</span></div></div>
+        <div class="fact"><span class="fact-icon" aria-hidden="true">✓</span><div><strong>Sesudah gempa</strong><span>Periksa keadaan dan ikuti informasi resmi.</span></div></div>
+      </div>
+    </div>
+
+    <section id="ringkasan">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Peta belajar</div>
+          <h2>Tiga langkah utama kesiapsiagaan</h2>
+          <p>Pelajari satu per satu. Simpan hal yang penting dan diskusikan rencana keluarga dengan orang di rumah.</p>
+        </div>
+        <div class="learn-grid">
+          <article class="learn-card"><span class="card-number">01</span><h3>Siapkan lingkungan</h3><p>Kenali jalur keluar, amankan benda yang mudah jatuh, dan sepakati tempat berkumpul bersama keluarga.</p><a class="text-link" href="#sebelum">Pelajari persiapan <span aria-hidden="true">→</span></a></article>
+          <article class="learn-card"><span class="card-number">02</span><h3>Lindungi diri</h3><p>Ketika berada di dalam bangunan, merendahkan badan, melindungi kepala dan leher, lalu bertahan di tempat berlindung.</p><a class="text-link" href="#saat">Pelajari tindakan <span aria-hidden="true">→</span></a></article>
+          <article class="learn-card"><span class="card-number">03</span><h3>Waspada sesudahnya</h3><p>Guncangan susulan dapat terjadi. Jauhi bangunan rusak dan cek informasi melalui kanal resmi.</p><a class="text-link" href="#sesudah">Pelajari setelah gempa <span aria-hidden="true">→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="urgent" aria-labelledby="pesan-penting">
+      <div class="wrap">
+        <div class="urgent-panel">
+          <span class="urgent-symbol" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3L22 20H2L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17.5v.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></span>
+          <div><h2 id="pesan-penting">Ingat saat guncangan terjadi</h2><p>Jika berada di dalam ruangan, jangan terburu-buru berlari saat bangunan sedang berguncang. Merunduk, lindungi kepala dan leher, berlindung di bawah meja yang kokoh bila tersedia, dan bertahan sampai guncangan berhenti. Sesuaikan tindakan dengan keadaan di sekitar Anda.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="materials" id="materi">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Materi edukasi</div><h2>Panduan yang bisa dipraktikkan</h2><p>Ringkasan berikut disusun menggunakan bahasa sederhana dari panduan BMKG dan BNPB. Keadaan setiap bangunan dan lokasi dapat berbeda.</p></div>
+        <div class="material-layout">
+          <aside class="material-side" aria-label="Daftar isi materi"><strong>Daftar isi</strong><a href="#sebelum">1. Sebelum gempa</a><a href="#saat">2. Saat gempa</a><a href="#sesudah">3. Setelah gempa</a><a href="#tas-siaga">4. Tas siaga keluarga</a><a href="#kuis">5. Kuis singkat</a></aside>
+          <div class="material-main">
+            <article class="material-block" id="sebelum">
+              <div class="material-block-head"><span class="card-number">01</span><div><span class="phase-tag">Sebelum gempa</span><h3>Kurangi risiko dari sekarang</h3><p>Tujuan: mengenali tempat aman dan membuat persiapan sederhana.</p></div></div>
+              <ol><li>Kenali jalur keluar, pintu, tangga, dan area yang lebih aman di rumah maupun tempat beraktivitas.</li><li>Letakkan benda berat di bagian bawah. Amankan lemari dan perabot tinggi agar tidak mudah terguling; periksa benda gantung yang berpotensi jatuh.</li><li>Sepakati titik berkumpul keluarga di tempat terbuka yang jauh dari bangunan, tiang, dan kabel listrik.</li><li>Siapkan perlengkapan penting yang mudah dijangkau dan catat nomor layanan darurat setempat yang telah dikonfirmasi.</li><li>Diskusikan rencana dengan keluarga dan lakukan latihan sederhana dengan aman.</li></ol>
+              <div class="tip"><strong>Contoh di rumah:</strong> periksa rak, lemari, televisi, dan barang pecah belah. Untuk pemasangan atau pemeriksaan struktur bangunan, mintalah bantuan tenaga yang kompeten.</div>
+            </article>
+            <article class="material-block" id="saat">
+              <div class="material-block-head"><span class="card-number">02</span><div><span class="phase-tag">Saat gempa</span><h3>Lindungi kepala dan leher</h3><p>Tujuan: mengetahui respons awal sesuai tempat Anda berada.</p></div></div>
+              <h4>Jika berada di dalam bangunan</h4>
+              <ol><li>Merunduk agar tidak mudah terjatuh.</li><li>Lindungi kepala dan leher, lalu berlindung di bawah meja kokoh jika tersedia.</li><li>Berpegangan pada pelindung dan tetap di tempat sampai guncangan berhenti. Jauhi kaca, jendela, lemari, dan benda yang dapat jatuh.</li><li>Jangan menggunakan lift. Setelah guncangan berhenti, perhatikan kondisi bangunan dan jalur keluar sebelum bergerak.</li></ol>
+              <h4>Jika berada di luar ruangan</h4>
+              <ul><li>Bergerak menuju tempat terbuka jika bisa dilakukan dengan aman; jauhi bangunan, tiang, pohon besar, dan kabel listrik.</li><li>Jika sedang berkendara, menepilah di lokasi aman yang tidak berada di bawah jembatan, kabel, atau bangunan, lalu ikuti informasi petugas.</li></ul>
+              <div class="tip"><strong>Catatan wilayah pesisir:</strong> jika berada di pesisir dan merasakan gempa kuat atau lama, segera menjauh dari pantai menuju tempat tinggi atau evakuasi yang ditetapkan, tanpa menunggu informasi tambahan. Ikuti panduan resmi tsunami.</div>
+            </article>
+            <article class="material-block" id="sesudah">
+              <div class="material-block-head"><span class="card-number">03</span><div><span class="phase-tag">Setelah gempa</span><h3>Periksa keadaan dan tetap waspada</h3><p>Tujuan: mengurangi risiko lanjutan setelah guncangan.</p></div></div>
+              <ol><li>Setelah guncangan berhenti, periksa diri sendiri dan orang sekitar. Berikan pertolongan sesuai kemampuan dan minta bantuan untuk keadaan darurat.</li><li>Keluar dengan hati-hati jika bangunan atau arahan petugas mengharuskan evakuasi. Jangan gunakan lift.</li><li>Jauhi bangunan yang rusak, dinding retak yang berpotensi runtuh, kabel listrik jatuh, serta lokasi berbahaya lainnya.</li><li>Waspadai gempa susulan. Jangan masuk kembali ke bangunan yang dinilai tidak aman sampai ada keterangan dari pihak berwenang.</li><li>Ikuti informasi BMKG, BNPB/BPBD, dan pemerintah setempat. Jangan menyebarkan pesan yang tidak jelas sumbernya.</li></ol>
+              <div class="tip"><strong>Utamakan keselamatan:</strong> jika mencium gas, melihat api, atau menemukan kabel listrik jatuh, menjauh dari area tersebut dan minta bantuan petugas. Jangan mengambil risiko untuk menyelamatkan barang.</div>
+            </article>
+            <article class="material-block" id="tas-siaga">
+              <div class="material-block-head"><span class="card-number">04</span><div><span class="phase-tag">Persiapan keluarga</span><h3>Contoh isi tas siaga</h3><p>Sesuaikan isi dengan kebutuhan keluarga. Daftar ini merupakan contoh umum, bukan daftar wajib yang lengkap untuk semua keadaan.</p></div></div>
+              <div class="kit-grid"><div class="kit-item"><span aria-hidden="true">✓</span><span>Air minum dan makanan tahan simpan</span></div><div class="kit-item"><span aria-hidden="true">✓</span><span>Senter dan baterai cadangan</span></div><div class="kit-item"><span aria-hidden="true">✓</span><span>Obat pribadi dan perlengkapan P3K</span></div><div class="kit-item"><span aria-hidden="true">✓</span><span>Salinan dokumen penting dalam wadah tahan air</span></div><div class="kit-item"><span aria-hidden="true">✓</span><span>Peluit dan pengisi daya/power bank bila tersedia</span></div><div class="kit-item"><span aria-hidden="true">✓</span><span>Kebutuhan bayi, lansia, atau anggota keluarga yang memerlukan bantuan</span></div></div>
+              <p class="small-note" style="margin-top:14px">Periksa isi tas secara berkala dan ganti barang yang kedaluwarsa. Simpan di lokasi yang mudah dijangkau.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="kuis">
+      <div class="wrap">
+        <div class="quiz-box">
+          <div class="quiz-intro"><div class="kicker" style="color:#8ce4d4">Coba pahami</div><h2>Kuis singkat kesiapsiagaan</h2><p>Pilih jawaban yang paling tepat. Kuis ini untuk membantu mengingat materi, bukan untuk menilai kesiapan seseorang dalam keadaan darurat.</p></div>
+          <form id="quizForm">
+            <div class="quiz-question"><fieldset><legend>1. Apa yang sebaiknya dilakukan saat gempa mengguncang ketika Anda berada di dalam ruangan?</legend><label class="quiz-option"><input type="radio" name="q1" value="a" required> Langsung berlari menggunakan lift.</label><label class="quiz-option"><input type="radio" name="q1" value="b"> Merunduk, lindungi kepala dan leher, berlindung, lalu bertahan.</label><label class="quiz-option"><input type="radio" name="q1" value="c"> Berdiri dekat jendela untuk melihat keadaan.</label></fieldset></div>
+            <div class="quiz-question"><fieldset><legend>2. Mengapa lemari tinggi sebaiknya diamankan?</legend><label class="quiz-option"><input type="radio" name="q2" value="a" required> Agar tidak mudah bergeser atau roboh ketika terguncang.</label><label class="quiz-option"><input type="radio" name="q2" value="b"> Agar ruangan terlihat lebih luas saja.</label><label class="quiz-option"><input type="radio" name="q2" value="c"> Supaya pintu rumah selalu terkunci.</label></fieldset></div>
+            <div class="quiz-question"><fieldset><legend>3. Setelah gempa, informasi apa yang sebaiknya diikuti?</legend><label class="quiz-option"><input type="radio" name="q3" value="a" required> Pesan berantai tanpa sumber yang jelas.</label><label class="quiz-option"><input type="radio" name="q3" value="b"> Tebakan orang di media sosial.</label><label class="quiz-option"><input type="radio" name="q3" value="c"> Informasi resmi BMKG, BNPB/BPBD, dan pemerintah setempat.</label></fieldset></div>
+            <button class="quiz-submit" type="submit">Periksa jawaban</button>
+            <div id="quizResult" class="quiz-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="video">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Media pendukung</div><h2>Video edukasi</h2><p>Video yang disarankan pengelola ditampilkan sebagai tautan eksternal. Status pemeriksaan langsung belum lengkap, sehingga tidak disematkan sebagai video terverifikasi.</p></div>
+        <article class="video-card">
+          <div class="video-visual" aria-hidden="true"><div class="play-circle"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l10 6.2a1.1 1.1 0 0 1 0 1.8l-10 6.2c-.7.4-1.6-.1-1.6-.9V5.8z"/></svg></div><small>Media edukasi · Gempa bumi</small></div>
+          <div class="video-copy"><span class="status">Perlu verifikasi langsung</span><h3>Kandidat video mitigasi gempa bumi</h3><p>Tautan ini diberikan oleh pengelola website. Judul resmi, kanal, durasi, ketersediaan, dan izin penyematan belum berhasil diperiksa langsung. Buka YouTube untuk meninjau isi videonya sebelum digunakan dalam sosialisasi.</p><a class="btn btn-primary" href="https://youtu.be/DeafytS3Rjw?si=NyqfNULIHfScj5cV" target="_blank" rel="noopener noreferrer">Tonton di YouTube <span aria-hidden="true">↗</span></a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="source-section" id="referensi">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Baca sumber asli</div><h2>Referensi tepercaya</h2><p>Materi di halaman ini diringkas dengan bahasa sendiri. Untuk arahan terkini dan konteks khusus, selalu baca panduan lembaga terkait.</p></div>
+        <div class="sources-grid">
+          <article class="source-card"><span class="source-icon" aria-hidden="true">BM</span><div><h3>Antisipasi Gempabumi</h3><p>Badan Meteorologi, Klimatologi, dan Geofisika (BMKG). Panduan sebelum, saat, dan setelah gempa bumi.</p><a href="https://www.bmkg.go.id/gempabumi/mitigasi/antisipasi-gempabumi" target="_blank" rel="noopener noreferrer">Buka panduan BMKG ↗</a><div class="small-note">Diakses 28 Oktober 2026</div></div></article>
+          <article class="source-card"><span class="source-icon" aria-hidden="true">BM</span><div><h3>Edukasi Gempabumi dan Tsunami</h3><p>BMKG. Materi edukasi tentang gempa bumi, tsunami, dan mitigasi.</p><a href="https://www.bmkg.go.id/gempabumi/mitigasi/edukasi-gempabumi-tsunami" target="_blank" rel="noopener noreferrer">Buka materi edukasi BMKG ↗</a><div class="small-note">Diakses 28 Oktober 2026</div></div></article>
+          <article class="source-card"><span class="source-icon" aria-hidden="true">BN</span><div><h3>Buku “Tanggap Tangkas Tangguh Menghadapi Bencana”</h3><p>Badan Nasional Penanggulangan Bencana (BNPB). Materi pengenalan risiko dan tindakan saat bencana.</p><a href="https://bnpb.go.id/storage/app/media/uploads/migration/pubs/478.pdf" target="_blank" rel="noopener noreferrer">Buka dokumen BNPB ↗</a><div class="small-note">Diakses 28 Oktober 2026</div></div></article>
+          <article class="source-card"><span class="source-icon" aria-hidden="true">BM</span><div><h3>Gempa bumi belum dapat diprediksi</h3><p>BMKG. Penjelasan agar masyarakat tidak mudah percaya pada isu prediksi gempa yang tidak dapat dipertanggungjawabkan.</p><a href="https://www.bmkg.go.id/siaran-pers/bmkg-gempabumi-belum-dapat-diprediksi-jangan-termakan-isu" target="_blank" rel="noopener noreferrer">Baca siaran pers BMKG ↗</a><div class="small-note">Diakses 28 Oktober 2026</div></div></article>
+        </div>
+        <p class="small-note" style="margin-top:20px">Tanggal akses mencatat pemeriksaan tautan sumber untuk penyusunan halaman, bukan tanggal penerbitan materi. Konten perlu ditinjau kembali oleh tim KKN sebelum dianggap sebagai materi final sosialisasi.</p>
+      </div>
+    </section>
+
+    <section class="about-section" id="tentang">
+      <div class="wrap about-grid">
+        <div><div class="kicker">Tentang kegiatan</div><h2>Edukasi yang dekat dengan warga</h2><p style="color:var(--muted)">Website ini disiapkan sebagai pendamping sosialisasi mitigasi gempa bumi untuk warga umum. Identitas kegiatan mengikuti informasi yang diberikan pengelola; detail administratif yang belum dipastikan tidak dianggap sebagai fakta final.</p><div class="placeholder-note"><strong>Catatan verifikasi:</strong> penulisan administratif Pucanganom perlu dikonfirmasi kembali oleh tim KKN bersama pemerintah kalurahan sebelum publikasi.</div></div>
+        <div class="about-card"><h3>Profil pengelola</h3><dl class="profile-list"><div><dt>Website</dt><dd>Mitigasi Bencana Alam Gempa Bumi</dd></div><div><dt>Kelompok KKN</dt><dd>KKN-M 34234 UNY</dd></div><div><dt>Perguruan tinggi</dt><dd>Universitas Negeri Yogyakarta</dd></div><div><dt>Pengelola</dt><dd>Muhammad Faiz Subhanul Fikri</dd></div><div><dt>Program studi</dt><dd>Pendidikan Ilmu Pengetahuan Sosial</dd></div><div><dt>Periode KKN</dt><dd>Oktober–Desember 2026</dd></div><div><dt>Lokasi</dt><dd>Padukuhan Pucanganom, Kalurahan Sumberagung, Kapanewon Moyudan, Kabupaten Sleman, DIY <span class="small-note">(perlu konfirmasi akhir)</span></dd></div><div><dt>Sasaran</dt><dd>Warga umum</dd></div></dl></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top"><div><strong>Siaga Gempa</strong><p>Website edukasi mitigasi gempa bumi untuk membantu warga belajar dan menyiapkan langkah sederhana berbasis rujukan resmi.</p></div><div><strong>Jelajahi</strong><p><a href="#materi">Materi</a> · <a href="#kuis">Kuis</a> · <a href="#video">Video</a> · <a href="#referensi">Referensi</a></p></div></div>
+      <div class="footer-bottom"><span>© 2026 · Program KKN-M 34234 UNY</span><span>Materi edukasi bukan pengganti instruksi petugas saat keadaan darurat.</span></div>
+    </div>
+  </footer>
+  <button class="back-top" type="button" id="backTop" aria-label="Kembali ke atas" title="Kembali ke atas">↑</button>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('navLinks');
+      toggle.addEventListener('click', function () {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      document.getElementById('printSummary').addEventListener('click', function () { window.print(); });
+      document.getElementById('backTop').addEventListener('click', function () { window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); });
+      const quizForm = document.getElementById('quizForm');
+      const result = document.getElementById('quizResult');
+      quizForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const data = new FormData(quizForm);
+        const answers = { q1: 'b', q2: 'a', q3: 'c' };
+        let score = 0;
+        Object.keys(answers).forEach(function (key) { if (data.get(key) === answers[key]) score++; });
+        const messages = [
+          'Ingat: saat di dalam ruangan, lindungi diri dan bertahan sampai guncangan berhenti.',
+          'Amankan benda berat agar risiko jatuh atau roboh berkurang.',
+          'Gunakan informasi dari BMKG, BNPB/BPBD, dan pemerintah setempat.'
+        ];
+        result.innerHTML = '<strong>Skor: ' + score + ' dari 3.</strong><p style="margin:8px 0 0">' + messages.join('<br>') + '</p>';
+        result.classList.add('visible');
+      });
+    }());
+  </script>
+</body>
+</html>
